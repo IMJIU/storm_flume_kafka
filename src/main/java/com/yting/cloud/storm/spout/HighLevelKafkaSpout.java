@@ -16,7 +16,7 @@ import backtype.storm.tuple.Fields;
 /**
  * Storm spout
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-14
  *
  */
@@ -53,7 +53,7 @@ public class HighLevelKafkaSpout implements IRichSpout {
 	public void activate() {
 		log.info("--------->activate start--------->");
 		MyHighLevelConsumer.main(null);
-		// ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½collector.emit(new Values("need to emit"));ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ã»Ð´ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼Ò»ï¿½ï¿½ï¿½ï¿½
+		// ÕâÀïµÄ¾ßÌå´úÂë¿ÉÒÔÖØ¹¹³öÀ´£¬»¹ÓÐcollector.emit(new Values("need to emit"));ÕâÑùµÄ´úÂëÒ²»¹Ã»Ð´µÄ£¬ÏÈÒâË¼Ò»ÏÂÁË
 		log.info("--------->activate end--------->");
 	}
 
@@ -84,45 +84,3 @@ public class HighLevelKafkaSpout implements IRichSpout {
 	}
 
 }
-id open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-		this.collector = collector;
-	}
-
-	@Override
-	public void ack(Object msgId) {
-		log.info("--------->ack");
-	}
-
-	@Override
-	public void activate() {
-		log.info("--------->activate start--------->");
-		MyHighLevelConsumer.main(null);
-		// ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½collector.emit(new Values("need to emit"));ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Ã»Ð´ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼Ò»ï¿½ï¿½ï¿½ï¿½
-		log.info("--------->activate end--------->");
-	}
-
-	@Override
-	public void close() {
-		log.info("--------->close");
-	}
-
-	@Override
-	public void deactivate() {
-		log.info("--------->deactivate");
-	}
-
-	@Override
-	public void fail(Object msgId) {
-		log.info("--------->fail");
-	}
-
-	@Override
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("highLevelKafkaSpout"));
-	}
-
-	@Override
-	public Map<String, Object> getComponentConfiguration() {
-		log.info("--------->getComponentConfiguration");
-		return null;
-	}

@@ -7,9 +7,9 @@ import kafka.producer.KeyedMessage;
 import kafka.producer.ProducerConfig;
 
 /**
- * Kafkaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ Producerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Eclipseï¿½Â±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½Ò»Ğ©ï¿½ï¿½ï¿½ï¿½
+ * Kafka¹ÙÍø¸øµÄ°¸Àı Producer£¬¶öÔÚEclipseÏÂ±¾µØÁ¬½Ó·şÎñÆ÷²âÊÔ£¬ËùÒÔĞŞ¸ÄÁËÒ»Ğ©´úÂë
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-01
  *
  */
@@ -21,7 +21,7 @@ public class TestProducer {
 
 		Properties props = new Properties();
 //		props.put("metadata.broker.list", "broker1:9092,broker2:9092");
-		props.put("metadata.broker.list", "rs229:9092"); // Eclipse ï¿½ï¿½rs229ï¿½Ú±ï¿½ï¿½ï¿½hostsÒ²Òªï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½ipï¿½ï¿½Ê½Ò²ï¿½ï¿½ï¿½ï¿½
+		props.put("metadata.broker.list", "rs229:9092"); // Eclipse ÏÂrs229ÔÚ±¾µØhostsÒ²ÒªÅäÖÃ£¬»òÕßĞ´³ÉipĞÎÊ½Ò²¿ÉÒÔ
 		props.put("serializer.class", "kafka.serializer.StringEncoder");
 		props.put("partitioner.class", "com.yting.cloud.kafka.partition.TestSimplePartitioner");
 		props.put("zookeeper.connect", "rs229:2181,rs227:2181,rs226:2181,rs198:2181,rs197:2181/kafka");
@@ -35,7 +35,7 @@ public class TestProducer {
 		for (long nEvents = 0; nEvents < events; nEvents++) {
 			long runtime = new Date().getTime();
 			String ip = "13.14.20." + rnd.nextInt(255);
-			String msg = "id---> " + (nEvents+1) + " ---> " + runtime + ",www.ytingxmei1106.com," + ip; // ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê¹ï¿½ï¿½Consumerï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ú²é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			String msg = "id---> " + (nEvents+1) + " ---> " + runtime + ",www.ytingxmei1106.com," + ip; // ¸Ä³ÉÕâÑùÊÇÎªÁËÊ¹ÓÃConsumerµÄÊ±ºò±ãÓÚ²é¿´¸÷¸ö·ÖÇøµÄÊı¾İ
 			System.out.println(msg);
 //			KeyedMessage<String, String> data = new KeyedMessage<String, String>("yting_page_visits", ip, msg);
 			KeyedMessage<String, String> data = new KeyedMessage<String, String>("test002", ip, msg);
@@ -46,7 +46,3 @@ public class TestProducer {
 		System.out.println("ok");
 	}
 }
-ps.put("partitioner.class", "com.yting.cloud.kafka.partition.TestSimplePartitioner");
-		props.put("zookeeper.connect", "rs229:2181,rs227:2181,rs226:2181,rs198:2181,rs197:2181/kafka");
-		props.put("num.partitions", "5");
-		props.pu

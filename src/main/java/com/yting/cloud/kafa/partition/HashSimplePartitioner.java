@@ -5,9 +5,9 @@ import kafka.producer.Partitioner;
 import kafka.utils.VerifiableProperties;
 
 /**
- * Kafkaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ SimplePartitionerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0.8.0ï¿½Ä°æ±¾ï¿½ï¿½ï¿½ï¿½0.8.1ï¿½Ä°æ±¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ã¶®ï¿½Ä£ï¿½
+ * Kafka¹ÙÍø¸øµÄ°¸Àý SimplePartitioner£¬¹ÙÍø¸øµÄÊÇ0.8.0µÄ°æ±¾£¬¸ú0.8.1µÄ°æ±¾²»Ò»Ñù£¬ËùÒÔ¸ÄÁËÏÂ£¬Äã¶®µÄ£¡
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-01
  * 
  */
@@ -41,42 +41,3 @@ public class HashSimplePartitioner implements Partitioner {
 	}
 
 }
-ition;
-
-
-import kafka.producer.Partitioner;
-import kafka.utils.VerifiableProperties;
-
-/**
- * Kafkaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä°ï¿½ï¿½ï¿½ SimplePartitionerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0.8.0ï¿½Ä°æ±¾ï¿½ï¿½ï¿½ï¿½0.8.1ï¿½Ä°æ±¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ã¶®ï¿½Ä£ï¿½
- * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
- * @Time 2014-07-01
- * 
- */
-public class HashSimplePartitioner implements Partitioner {
-	public HashSimplePartitioner(VerifiableProperties props) {
-
-	}
-
-	// public int partition(String key, int a_numPartitions) {
-	// int partition = 0;
-	// int offset = key.lastIndexOf('.');
-	// if (offset > 0) {
-	// partition = Integer.parseInt(key.substring(offset + 1)) %
-	// a_numPartitions;
-	// }
-	// return partition;
-	// }
-
-	@Override
-	public int partition(Object obj, int a_numPartitions) {
-//		String key = obj.toString();
-		int partition = 0;
-//		int offset = key.lastIndexOf('.');
-//		if (offset > 0) {
-//			partition = Integer.parseInt(key.substring(offset + 1)) % a_numPartitions;
-//		}
-		
-		partition = obj.hashCode() % a_numPartitions;
-	

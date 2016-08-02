@@ -17,7 +17,7 @@ import kafka.consumer.ConsumerIterator;
 /**
  * KafkaSink (custom)
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-14
  * @Problem you should run this consumer class before producer
  *
@@ -110,7 +110,3 @@ public class MyHighLevelConsumer {
 //      example.shutdown();
   }
 }
-            ConsumerIterator<byte[], byte[]> it = m_stream.iterator();
-            while (it.hasNext())
-                System.out.println("Thread " + m_threadNumber + ": " + new String(it.next().message()));
-            System.out.println("Shutting 

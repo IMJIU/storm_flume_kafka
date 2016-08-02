@@ -17,9 +17,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Kafka锟斤拷锟斤拷锟斤拷锟侥帮拷锟斤拷 SimpleConsumer锟斤拷锟斤拷锟斤拷Eclipse锟斤拷锟斤拷锟斤拷锟接凤拷锟斤拷锟斤拷锟斤拷锟皆ｏ拷锟斤拷锟斤拷锟睫革拷锟斤拷一些锟斤拷锟斤拷
+ * Kafka官网给的案例 SimpleConsumer，饿在Eclipse本地连接服务器测试，所以修改了一些代码
  * 
- * @Author 锟斤拷锟斤拷庭
+ * @Author 王扬庭
  * @Time 2014-07-14
  * 
  */
@@ -36,7 +36,7 @@ public class MySimpleConsumer {
 //		String topic = "test003";
 		String topic = "flume-kafka-storm-001";
 //		int partition = 0; 
-		int partition = 1; // The you smile until forever ..................... 锟斤拷志锟侥硷拷锟叫碉拷锟斤拷锟斤拷锟斤拷息锟斤拷锟酵碉拷锟斤拷锟斤拷1锟斤拷去锟剿ｏ拷默锟斤拷2锟斤拷锟斤拷
+		int partition = 1; // The you smile until forever ..................... 日志文件中的这条信息被送到分区1中去了，默认2分区
 		List<String> seeds = new ArrayList<String>();
 //		seeds.add("rs229");
 		seeds.add("rs229");
@@ -218,6 +218,3 @@ public class MySimpleConsumer {
 		return returnMetaData;
 	}
 }
-mpleConsumer(seed, a_port, 100000, 64 * 1024, "leaderLookup");
-				List<String> topics = Collections.singletonList(a_topic);
-				TopicMetadataRequest req = new TopicMetadataRequest

@@ -19,7 +19,7 @@ import org.apache.flume.sink.AbstractSink;
 /**
  * KafkaSink (custom)
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-14
  * @Problem kafka num.partitions fall flat
  *
@@ -38,7 +38,7 @@ public class KafkaSink extends AbstractSink implements Configurable {
 		props.setProperty("serializer.class", "kafka.serializer.StringEncoder");
 		props.put("partitioner.class", "com.yting.cloud.kafa.partition.HashSimplePartitioner");
 		props.put("zookeeper.connect", "rs229:2181,rs227:2181,rs226:2181,rs198:2181,rs197:2181/kafka");
-		props.setProperty("num.partitions", "5"); // ï¿½ï¿½ï¿½ï¿½Ð§
+		props.setProperty("num.partitions", "5"); // ²»ÉúÐ§
 		// props.setProperty("producer.type", "async");
 		// props.setProperty("batch.num.messages", "1");
 		props.put("request.required.acks", "1");
@@ -74,20 +74,3 @@ public class KafkaSink extends AbstractSink implements Configurable {
 		}
 	}
 }
-sages", "1");
-		props.put("request.required.acks", "1");
-		ProducerConfig config = new ProducerConfig(props);
-		producer = new Producer<String, String>(config);
-		logger.info("===============================================================================");
-		logger.info("KafkaSink initialize is successful .");
-
-	}
-
-	@Override
-	public Status process() throws EventDeliveryException {
-		Channel channel = getChannel();
-		Transaction tx = channel.getTransaction();
-		try {
-			tx.begin();
-			Event e = channel.take();
-			if (e == null) 

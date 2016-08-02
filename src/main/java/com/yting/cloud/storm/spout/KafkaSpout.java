@@ -24,7 +24,7 @@ import backtype.storm.tuple.Values;
 /**
  * Storm spout
  * 
- * @Author ï¿½ï¿½ï¿½ï¿½Í¥
+ * @Author ÍõÑïÍ¥
  * @Time 2014-07-14
  *
  */
@@ -110,37 +110,3 @@ public class KafkaSpout implements IRichSpout {
 	}
 
 }
-new Properties();
-		props.put("zookeeper.connect", "rs229:2181,rs227:2181,rs226:2181,rs198:2181,rs197:2181/kafka");
-//		props.put("zookeeper.connect", "rs229:2181,rs227:2181,rs226:2181,rs198:2181,rs197:2181");
-//		props.put("zookeeper.connect","rs229");
-		props.put("group.id", "2");
-        props.put("zookeeper.session.timeout.ms", "4000");
-        props.put("zookeeper.sync.time.ms", "200");
-        props.put("auto.commit.interval.ms", "1000");
-
-		return new ConsumerConfig(props);
-	}
-
-	@Override
-	public void close() {
-		log.info("--------->close");
-	}
-
-	@Override
-	public void deactivate() {
-		log.info("--------->deactivate");
-	}
-
-	@Override
-	public void fail(Object msgId) {
-		log.info("--------->fail");
-	}
-
-	@Override
-	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("kafkaSpout"));
-	}
-
-	@Override
-	public M
